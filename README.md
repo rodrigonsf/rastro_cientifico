@@ -4,7 +4,7 @@
 
 Ferramenta de apoio ao registro e à documentação do uso de Inteligência Artificial Generativa (IAG) e Inteligência Artificial Preditiva (IAP) na pesquisa científica.
 
-A Edição CNPq foi desenvolvida com base na Portaria CNPq nº 3.004/2026, na Política de Integridade na Atividade Científica (Portaria CNPq nº 2.664/2026) e na Lei Geral de Proteção de Dados Pessoais (LGPD), apoiando o registro das utilizações de IA e a elaboração de declarações conforme as diretrizes aplicáveis.
+A Edição CNPq foi desenvolvida com base na **Portaria CNPq nº 3.004/2026**, na Política de Integridade na Atividade Científica (**Portaria CNPq nº 2.664/2026**) e na Lei Geral de Proteção de Dados Pessoais (**LGPD**), apoiando o registro das utilizações de IA e a elaboração de declarações conforme as diretrizes aplicáveis.
 
 ## Acesso rápido à documentação
 
