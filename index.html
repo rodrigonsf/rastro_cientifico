@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#174b3e">
+<title>Rastro Científico · Edição CNPq 0.4.2</title>
+<style>
+:root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#20312d;background:#f4f6f2;font-synthesis:none;text-rendering:optimizeLegibility}
+*{box-sizing:border-box}body{margin:0;min-width:320px}button,input,select,textarea{font:inherit}
+:root{--green:#174b3e;--green2:#eaf2ed;--muted:#687872;--line:#dfe5df;--danger:#a33b35}
+.shell{max-width:1120px;margin:auto;padding:0 28px}.top{height:72px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:750;color:#20312d;text-decoration:none}.mark{width:34px;height:34px;display:grid;place-items:center;border-radius:9px;background:var(--green);color:white;font:22px Georgia}
+.local{font-size:12px;color:var(--muted)}.local:before{content:"";display:inline-block;width:7px;height:7px;background:#4d9b72;border-radius:50%;margin-right:7px}
+.hero{padding:42px 0 26px}.eyebrow{margin:0 0 8px;color:#668077;font-size:10px;font-weight:750;letter-spacing:.14em}
+h1{font-size:34px;letter-spacing:-.04em;margin:0 0 9px}h1 em{font-family:Georgia,serif;color:var(--green)}.sub{margin:0;color:var(--muted);font-size:14px;line-height:1.6;max-width:700px}
+.tabs{display:flex;gap:7px;border-bottom:1px solid var(--line);margin:14px 0 22px;overflow:auto}
+.tab{border:0;background:transparent;color:#64746c;padding:12px 15px;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;font-size:13px}
+.tab.active{color:var(--green);font-weight:700;border-color:var(--green)}
+.layout{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(270px,.8fr);gap:18px;align-items:start}
+.card{background:white;border:1px solid var(--line);border-radius:13px;padding:22px;box-shadow:0 6px 22px #20312d08}
+.card h2{font-size:18px;margin:0 0 5px}.muted{color:var(--muted);font-size:12px;line-height:1.55}.field{margin-top:15px}.field label{display:block;font-size:12px;font-weight:700;margin-bottom:6px}
+input,select,textarea{width:100%;border:1px solid #cfd9d2;border-radius:8px;background:#fff;color:#20312d;padding:11px 12px;outline-color:var(--green);font-size:13px}
+textarea{min-height:82px;resize:vertical}input:focus,select:focus,textarea:focus{border-color:var(--green)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.btn{border:0;border-radius:8px;padding:10px 14px;font-size:12px;font-weight:700;cursor:pointer}
+.primary{background:var(--green);color:white}.secondary{background:var(--green2);color:var(--green)}.danger{background:#f8e9e7;color:var(--danger)}.ghost{background:#f0f3f0;color:#42544b}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:17px}
+.list{display:flex;flex-direction:column;gap:9px;margin-top:15px}.item{border:1px solid var(--line);border-radius:9px;padding:13px;display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.item strong{font-size:13px}.item p{margin:4px 0 0;color:var(--muted);font-size:11px;line-height:1.5}.item-actions{display:flex;gap:5px;flex-shrink:0}.item-actions button{font-size:11px;padding:6px 8px}
+.empty{padding:22px 14px;text-align:center;border:1px dashed #cbd6ce;border-radius:9px;color:var(--muted);font-size:12px;margin-top:14px}
+.notice{background:#f1f6f2;border:1px solid #e0eae2;border-radius:9px;padding:12px;color:#50645a;font-size:11px;line-height:1.6;margin-top:15px}
+.hidden{display:none!important}.badge{display:inline-block;background:#edf3ef;color:#315d4b;padding:4px 7px;border-radius:5px;font-size:10px;font-weight:700}
+.footer{display:flex;justify-content:space-between;gap:10px;padding:26px 0 35px;color:#84918a;font-size:10px}
+#toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#203b32;color:white;padding:11px 16px;border-radius:8px;font-size:12px;box-shadow:0 5px 20px #0002;display:none;max-width:90vw}
+@media(max-width:760px){.layout{grid-template-columns:1fr}.shell{padding:0 16px}.hero{padding-top:30px}h1{font-size:29px}.card{padding:17px}.footer{flex-direction:column}.row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="shell">
+<header class="top">
+<a class="brand" href="#"><span class="mark">R</span>Rastro Científico</a>
+<span class="local">Edição CNPq · Dados armazenados neste navegador</span>
+</header>
+<section class="hero">
+<p class="eyebrow">EDIÇÃO CNPq · DOCUMENTAÇÃO DO USO DE INTELIGÊNCIA ARTIFICIAL</p>
+<h1>Seu trabalho científico.<br><em>Seu registro de uso de IA.</em></h1>
+<p class="sub">Organize pesquisas e documente o uso de Inteligência Artificial Generativa e Preditiva conforme as diretrizes aplicáveis do CNPq. Registre ferramentas, versões quando disponíveis, etapas e finalidades.</p>
+</section>
+<nav class="tabs" aria-label="Seções">
+<button class="tab active" data-tab="research">Pesquisas</button>
+<button class="tab" data-tab="usage">Utilizações de IA</button>
+<button class="tab" data-tab="declarations">Declarações</button>
+<button class="tab" data-tab="backup">Backup e dados</button>
+<button class="tab" data-tab="about">Sobre</button>
+</nav>
+
+<section id="view-research" class="layout">
+<div class="card">
+<h2 id="research-form-title">Cadastrar pesquisa</h2>
+<p class="muted">Crie um registro para organizar as utilizações de IA relacionadas a um trabalho científico.</p>
+<form id="research-form">
+<input type="hidden" id="research-id">
+<div class="field"><label for="research-title">Título da pesquisa *</label><input id="research-title" required maxlength="240" placeholder="Ex.: Análise de práticas de leitura acadêmica"></div>
+<div class="field"><label for="research-field">Área do conhecimento (opcional)</label><input id="research-field" maxlength="120" placeholder="Ex.: Letras, Educação, Saúde"></div>
+<div class="field"><label for="research-description">Descrição ou observações (opcional)</label><textarea id="research-description" maxlength="2000" placeholder="Anotações para identificar o trabalho..."></textarea></div>
+<div class="actions"><button class="btn primary" type="submit">Salvar pesquisa</button><button class="btn ghost hidden" type="button" id="cancel-research">Cancelar edição</button></div>
+</form>
+</div>
+<div class="card">
+<h2>Minhas pesquisas</h2><p class="muted">Pesquisas cadastradas neste navegador.</p>
+<div id="research-list" class="list"><div class="empty">Carregando registros...</div></div>
+</div>
+</section>
+
+<section id="view-usage" class="layout hidden">
+<div class="card">
+<h2 id="usage-form-title">Registrar utilização de IA</h2>
+<p class="muted">Cada registro representa uma ferramenta utilizada. Se você utilizou ferramentas diferentes, crie registros separados. Esta edição organiza os registros conforme as diretrizes CNPq.</p>
+<form id="usage-form">
+<input type="hidden" id="usage-id">
+<div class="field"><label for="usage-research">Pesquisa relacionada *</label><select id="usage-research" required><option value="">Selecione uma pesquisa</option></select></div>
+<div class="row">
+<div class="field"><label for="usage-type">Tipo de IA *</label><select id="usage-type" required><option value="IAG">IAG · Generativa</option><option value="IAP">IAP · Preditiva</option></select></div>
+<div class="field">
+<label for="usage-tool-select">Ferramenta *</label>
+<select id="usage-tool-select" required>
+<option value="">Selecione primeiro o tipo de IA</option>
+</select>
+<div id="usage-tool-other-wrap" class="field hidden" style="margin-top:9px">
+<label for="usage-tool-other">Especifique a ferramenta *</label>
+<input id="usage-tool-other" maxlength="160" placeholder="Digite o nome da ferramenta">
+</div>
+</div>
+</div>
+<div class="row">
+<div class="field"><label for="usage-model">Modelo (opcional, recomendado)</label><input id="usage-model" maxlength="160" placeholder="Ex.: GPT-4o, Gemini 2.5 Pro"><p class="muted" style="margin:6px 0 0">Não é obrigatório. Se souber qual modelo foi utilizado, informe-o para tornar o registro mais preciso.</p></div>
+<div class="field"><label for="usage-version">Versão (quando conhecida)</label><input id="usage-version" maxlength="100" placeholder="Versão ou não identificada"></div>
+</div>
+<div class="field"><label for="usage-phase">Fase da pesquisa *</label><select id="usage-phase" required><option value="">Selecione</option><option>Definição do problema</option><option>Revisão de literatura</option><option>Planejamento metodológico</option><option>Coleta de dados</option><option>Tratamento ou organização de dados</option><option>Análise de dados</option><option>Interpretação dos resultados</option><option>Redação</option><option>Revisão e edição</option><option>Tradução</option><option>Outra</option></select></div>
+<div class="field hidden" id="usage-iap-training-wrap"><label for="usage-iap-training">O projeto envolve treinamento de modelo de IAP?</label><select id="usage-iap-training"><option value="unknown">Não informado</option><option value="yes">Sim</option><option value="no">Não</option></select><p class="muted" style="margin:6px 0 0">A declaração formal prevista no art. 9º da Portaria CNPq nº 3.004/2026 aplica-se a projetos que envolvam treinamento de modelos. O uso de uma ferramenta pronta, por si só, não permite concluir que houve treinamento.</p></div>
+<div class="field"><label for="usage-purpose">Finalidade específica *</label><textarea id="usage-purpose" required maxlength="1500" placeholder="Explique para que a ferramenta foi utilizada nesta etapa."></textarea></div>
+<div class="field"><label for="usage-human">Intervenção humana</label><textarea id="usage-human" maxlength="1500" placeholder="Como você orientou, selecionou, corrigiu ou complementou o resultado?"></textarea></div>
+<div class="field"><label for="usage-validation">Verificação e validação</label><textarea id="usage-validation" maxlength="1500" placeholder="O que foi conferido? Como você verificou a confiabilidade do resultado?"></textarea></div>
+<div class="actions"><button class="btn primary" type="submit">Salvar utilização</button><button class="btn ghost hidden" type="button" id="cancel-usage">Cancelar edição</button></div>
+</form>
+</div>
+<div class="card">
+<h2>Utilizações registradas</h2><p class="muted">Registros vinculados às pesquisas cadastradas.</p>
+<div id="usage-list" class="list"><div class="empty">Nenhuma utilização registrada.</div></div>
+</div>
+</section>
+
+
+<section id="view-declarations" class="layout hidden">
+<div class="card">
+<h2>Gerar declaração de uso de IA</h2>
+<p class="muted">Selecione uma pesquisa e gere um rascunho consolidado a partir dos registros existentes. Revise o texto antes de utilizá-lo em artigo, relatório, tese ou outro documento.</p>
+<div class="field"><label for="declaration-research">Pesquisa *</label><select id="declaration-research"><option value="">Selecione uma pesquisa</option></select></div>
+<div class="field"><label for="declaration-context">Contexto adicional (opcional)</label><textarea id="declaration-context" placeholder="Informações complementares que deseja incluir na declaração."></textarea></div>
+<div class="actions"><button id="generate-declaration" class="btn primary">Gerar rascunho</button></div>
+<div class="notice">O texto gerado é um rascunho para revisão humana. O Rastro Científico não certifica conformidade normativa nem substitui as instruções do periódico, programa de pós-graduação ou instituição.</div>
+</div>
+<div class="card">
+<h2>Prévia da declaração</h2>
+<p class="muted">A declaração será preservada como documento histórico, com cópia dos registros usados na geração.</p>
+<div id="declaration-output" class="empty">Selecione uma pesquisa e clique em “Gerar rascunho”.</div>
+<div class="actions hidden" id="declaration-actions"><button id="print-declaration" class="btn secondary">Imprimir / salvar em PDF</button><button id="save-declaration" class="btn primary">Salvar versão histórica</button></div>
+</div>
+<div class="card" style="grid-column:1/-1">
+<h2>Declarações salvas</h2><p class="muted">Versões históricas não são alteradas quando os registros de origem mudam.</p>
+<div id="declaration-list" class="list"><div class="empty">Nenhuma declaração salva.</div></div>
+</div>
+</section>
+
+<section id="view-backup" class="layout hidden">
+<div class="card">
+<h2>Backup dos seus dados</h2>
+<p class="muted">Os registros ficam armazenados neste navegador. Exporte cópias periódicas para evitar perda de informações.</p>
+<div class="notice">O backup contém os dados das pesquisas e utilizações registrados no Rastro Científico. Guarde o arquivo em local seguro, especialmente se houver informações sensíveis.</div>
+<div class="actions"><button id="export" class="btn primary">Exportar backup JSON</button><button id="import-trigger" class="btn secondary">Restaurar backup</button><input id="import-file" class="hidden" type="file" accept=".json,application/json"></div>
+</div>
+<div class="card">
+<h2>Sobre esta versão</h2>
+<p class="muted"><span class="badge">Edição CNPq · 0.4.2</span></p>
+<p class="muted">Esta edição permite cadastrar pesquisas, registrar utilizações de IAG e IAP, gerar rascunhos de declarações e preservar versões históricas. A declaração de IAG contempla ferramenta, versão quando disponível, etapa e finalidade específica. Para IAP, o sistema identifica se o projeto envolve treinamento de modelos, hipótese tratada no art. 9º da Portaria CNPq nº 3.004/2026. A geração é um rascunho revisável, não uma certificação de conformidade.</p>
+<div class="notice"><strong>Edição CNPq.</strong> Configurada para documentar as informações previstas nas Portarias CNPq nº 2.664/2026 e nº 3.004/2026, observada sua aplicação no que couber aos agentes e atividades abrangidos. A declaração gerada é um rascunho revisável e não certifica conformidade. Este protótipo não envia dados para servidores.</div>
+</div>
+</section>
+<section id="view-about" class="hidden">
+<div class="card">
+<h2>Sobre o Rastro Científico</h2>
+<p>O Rastro Científico é uma iniciativa de desenvolvimento tecnológico orientada pela transparência científica, pela responsabilidade no uso da Inteligência Artificial e pelo compromisso com a democratização do conhecimento.</p>
+<p>Sua concepção e desenvolvimento partem de uma perspectiva sociotécnica, que compreende a tecnologia não como um instrumento neutro ou isolado, mas como uma construção humana, histórica e social, atravessada por valores, práticas, relações e necessidades coletivas.</p>
+<p>Sua construção foi guiada pelo verdadeiro espírito do compartilhamento livre: a compreensão de que o conhecimento e as soluções tecnológicas podem e devem circular, ser compartilhados, aperfeiçoados e colocados a serviço da sociedade. A tecnologia também deve atuar como instrumento de transformação social, colaboração, autonomia e ampliação do acesso ao conhecimento.</p>
+<p>Acreditamos que soluções tecnológicas de interesse coletivo não precisam permanecer restritas a quem as concebeu. Compartilhar ideias, experiências, ferramentas e possibilidades de desenvolvimento é também uma forma de fortalecer a participação social, estimular a autonomia tecnológica e contribuir para uma sociedade mais aberta, colaborativa e capaz de construir suas próprias soluções.</p>
+<p>O Rastro Científico nasce, portanto, com essa perspectiva: contribuir para o desenvolvimento científico, ampliar o acesso ao conhecimento e promover a circulação livre de soluções tecnológicas.</p>
+<div class="notice"><strong>Idealizador:</strong> Rodrigo NS Fernandes</div>
+<p style="margin:16px 0 6px"><strong>Conheça o projeto e acompanhe seu desenvolvimento:</strong></p>
+<p><a href="https://git.ufrj.br/rodrigofernandes" target="_blank" rel="noopener noreferrer">GitLab dos desenvolvedores</a></p>
+</div>
+</section>
+<footer class="footer"><span>Rastro Científico · Edição CNPq 0.4.2</span><span>Armazenamento local · sem conta ou sincronização</span></footer>
+</div>
+<div id="toast" role="status" aria-live="polite"></div>
+<script>
+(() => {
+'use strict';
+const DB='rastro-cientifico-prototipo', VERSION=4;
+let currentDraft=null;
+let db;
+const $=id=>document.getElementById(id);
+const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const uid=()=>crypto.randomUUID?crypto.randomUUID():`${Date.now()}-${Math.random().toString(16).slice(2)}`;
+function toast(message){const el=$('toast');el.textContent=message;el.style.display='block';clearTimeout(toast.timer);toast.timer=setTimeout(()=>el.style.display='none',2800);}
+function openDB(){return new Promise((resolve,reject)=>{if(!('indexedDB'in window)){reject(new Error('Este navegador não oferece suporte ao armazenamento local necessário.'));return;}const req=indexedDB.open(DB,VERSION);req.onupgradeneeded=()=>{const d=req.result;if(!d.objectStoreNames.contains('researches'))d.createObjectStore('researches',{keyPath:'id'});if(!d.objectStoreNames.contains('usages')){const s=d.createObjectStore('usages',{keyPath:'id'});s.createIndex('researchId','researchId',{unique:false});}if(!d.objectStoreNames.contains('declarations')){const s=d.createObjectStore('declarations',{keyPath:'id'});s.createIndex('researchId','researchId',{unique:false});}};req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error);});}
+function store(name,mode='readonly'){return db.transaction(name,mode).objectStore(name);}
+function all(name){return new Promise((resolve,reject)=>{const r=store(name).getAll();r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);});}
+function put(name,value){return new Promise((resolve,reject)=>{const tx=db.transaction(name,'readwrite');tx.objectStore(name).put(value);tx.oncomplete=()=>resolve();tx.onerror=()=>reject(tx.error);});}
+function remove(name,id){return new Promise((resolve,reject)=>{const tx=db.transaction(name,'readwrite');tx.objectStore(name).delete(id);tx.oncomplete=()=>resolve();tx.onerror=()=>reject(tx.error);});}
+async function refresh(){
+ const researches=await all('researches'), usages=await all('usages'), declarations=await all('declarations');
+ $('research-list').innerHTML=researches.length?researches.sort((a,b)=>b.updatedAt.localeCompare(a.updatedAt)).map(r=>`<article class="item"><div><strong>${esc(r.title)}</strong><p>${esc(r.field||'Área não informada')} · ${usages.filter(u=>u.researchId===r.id).length} utilização(ões)</p></div><div class="item-actions"><button class="btn ghost" data-edit-research="${esc(r.id)}">Editar</button><button class="btn danger" data-delete-research="${esc(r.id)}">Excluir</button></div></article>`).join(''):'<div class="empty">Nenhuma pesquisa cadastrada. Use o formulário para criar a primeira.</div>';
+ $('usage-research').innerHTML='<option value="">Selecione uma pesquisa</option>'+researches.map(r=>`<option value="${esc(r.id)}">${esc(r.title)}</option>`).join('');
+ $('declaration-research').innerHTML='<option value="">Selecione uma pesquisa</option>'+researches.map(r=>`<option value="${esc(r.id)}">${esc(r.title)}</option>`).join('');
+ $('declaration-list').innerHTML=declarations.length?declarations.sort((a,b)=>b.generatedAt.localeCompare(a.generatedAt)).map(d=>`<article class="item"><div><strong>${esc(d.researchTitle)}</strong><p>Gerada em ${new Date(d.generatedAt).toLocaleString('pt-BR')} · ${d.snapshot.length} utilização(ões) registradas</p></div><div class="item-actions"><button class="btn ghost" data-view-declaration="${esc(d.id)}">Visualizar</button></div></article>`).join(''):'<div class="empty">Nenhuma declaração salva.</div>'; 
+ $('usage-list').innerHTML=usages.length?usages.sort((a,b)=>b.updatedAt.localeCompare(a.updatedAt)).map(u=>{const r=researches.find(x=>x.id===u.researchId);return `<article class="item"><div><strong>${esc(u.tool)} <span class="badge">${esc(u.aiType)}</span></strong><p>${esc(r?.title||'Pesquisa não encontrada')}<br>${esc(u.phase)} · ${esc(u.purpose)}</p></div><div class="item-actions"><button class="btn ghost" data-edit-usage="${esc(u.id)}">Editar</button><button class="btn danger" data-delete-usage="${esc(u.id)}">Excluir</button></div></article>`;}).join(''):'<div class="empty">Nenhuma utilização registrada. Cadastre uma pesquisa antes de registrar uma utilização.</div>';
+}
+const toolCatalog = {
+ IAG: [
+  'Adobe Firefly','ChatGPT','Claude','Consensus','DeepSeek','DALL·E','Elicit',
+  'ElevenLabs','GitHub Copilot','Google Gemini','Google Scholar Labs','Grok',
+  'Jenni AI','LeapSpace','Meta AI','Microsoft Copilot','Midjourney','NotebookLM',
+  'Paperpal','Perplexity','QuillBot','Runway','Scholarcy','Scite','SciSpace',
+  'Scopus AI','Suno','Writefull'
+ ],
+ IAP: [
+  'Alteryx','Amazon SageMaker','Azure Machine Learning','CatBoost','DataRobot',
+  'Databricks','Google Vertex AI','H2O.ai','IBM SPSS Modeler','IBM SPSS Statistics',
+  'KNIME','LightGBM','MATLAB','Orange Data Mining','Python','PyTorch','R',
+  'RapidMiner','SAS','Scikit-learn','TensorFlow','Weka','XGBoost'
+ ]
+};
+function populateToolOptions(type, selectedValue='') {
+ const select=$('usage-tool-select');
+ const tools=toolCatalog[type]||[];
+ select.innerHTML='<option value="">Selecione uma ferramenta</option>'+
+  tools.map(name=>`<option value="${esc(name)}">${esc(name)}</option>`).join('')+
+  '<option value="__other__">Outros</option>';
+ if(selectedValue && tools.includes(selectedValue)) {
+  select.value=selectedValue;
+  $('usage-tool-other-wrap').classList.add('hidden');
+  $('usage-tool-other').required=false;
+ } else if(selectedValue) {
+  select.value='__other__';
+  $('usage-tool-other-wrap').classList.remove('hidden');
+  $('usage-tool-other').required=true;
+  $('usage-tool-other').value=selectedValue;
+ } else {
+  select.value='';
+  $('usage-tool-other-wrap').classList.add('hidden');
+  $('usage-tool-other').required=false;
+  $('usage-tool-other').value='';
+ }
+}
+
+function resetResearch(){$('research-form').reset();$('research-id').value='';$('research-form-title').textContent='Cadastrar pesquisa';$('cancel-research').classList.add('hidden');}
+function updateIapTrainingVisibility(){const isIap=$('usage-type').value==='IAP';$('usage-iap-training-wrap').classList.toggle('hidden',!isIap);$('usage-iap-training').disabled=!isIap;}
+function resetUsage(){$('usage-form').reset();$('usage-id').value='';populateToolOptions($('usage-type').value);$('usage-tool-other-wrap').classList.add('hidden');$('usage-tool-other').required=false;updateIapTrainingVisibility();$('usage-form-title').textContent='Registrar utilização de IA';$('cancel-usage').classList.add('hidden');}
+$('research-form').addEventListener('submit',async e=>{e.preventDefault();const id=$('research-id').value||uid();const old=(await all('researches')).find(r=>r.id===id);const now=new Date().toISOString();await put('researches',{id,title:$('research-title').value.trim(),field:$('research-field').value.trim(),description:$('research-description').value.trim(),createdAt:old?.createdAt||now,updatedAt:now});resetResearch();await refresh();toast('Pesquisa salva neste navegador.');});
+$('cancel-research').addEventListener('click',resetResearch);
+$('usage-form').addEventListener('submit',async e=>{e.preventDefault();const id=$('usage-id').value||uid();const old=(await all('usages')).find(u=>u.id===id);const now=new Date().toISOString();await put('usages',{id,researchId:$('usage-research').value,aiType:$('usage-type').value,tool:($('usage-tool-select').value==='__other__' ? $('usage-tool-other').value.trim() : $('usage-tool-select').value),model:$('usage-model').value.trim(),version:$('usage-version').value.trim(),phase:$('usage-phase').value,purpose:$('usage-purpose').value.trim(),humanIntervention:$('usage-human').value.trim(),validation:$('usage-validation').value.trim(),iapTraining:$('usage-type').value==='IAP'?$('usage-iap-training').value:'not_applicable',createdAt:old?.createdAt||now,updatedAt:now});resetUsage();await refresh();toast('Utilização registrada neste navegador.');});
+$('cancel-usage').addEventListener('click',resetUsage);
+$('usage-type').addEventListener('change',()=>{
+ populateToolOptions($('usage-type').value);
+ updateIapTrainingVisibility();
+});
+$('usage-tool-select').addEventListener('change',()=>{
+ const other=$('usage-tool-select').value==='__other__';
+ $('usage-tool-other-wrap').classList.toggle('hidden',!other);
+ $('usage-tool-other').required=other;
+ if(!other)$('usage-tool-other').value='';
+});
+
+$('research-list').addEventListener('click',async e=>{const edit=e.target.dataset.editResearch,del=e.target.dataset.deleteResearch;if(edit){const r=(await all('researches')).find(x=>x.id===edit);if(!r)return;$('research-id').value=r.id;$('research-title').value=r.title;$('research-field').value=r.field;$('research-description').value=r.description;$('research-form-title').textContent='Editar pesquisa';$('cancel-research').classList.remove('hidden');$('research-title').focus();}if(del){const uses=(await all('usages')).filter(u=>u.researchId===del);if(!confirm(`Excluir esta pesquisa${uses.length?' e suas '+uses.length+' utilizações':''}? Esta ação não pode ser desfeita.`))return;for(const u of uses)await remove('usages',u.id);await remove('researches',del);await refresh();toast('Pesquisa excluída.');}});
+$('usage-list').addEventListener('click',async e=>{const edit=e.target.dataset.editUsage,del=e.target.dataset.deleteUsage;if(edit){const u=(await all('usages')).find(x=>x.id===edit);if(!u)return;$('usage-id').value=u.id;$('usage-research').value=u.researchId;$('usage-type').value=u.aiType;populateToolOptions(u.aiType,u.tool);$('usage-model').value=u.model;$('usage-version').value=u.version;$('usage-phase').value=u.phase;$('usage-purpose').value=u.purpose;$('usage-human').value=u.humanIntervention;$('usage-validation').value=u.validation;$('usage-iap-training').value=u.iapTraining||'unknown';updateIapTrainingVisibility();$('usage-form-title').textContent='Editar utilização de IA';$('cancel-usage').classList.remove('hidden');$('usage-tool-select').focus();}if(del){if(!confirm('Excluir este registro de utilização?'))return;await remove('usages',del);await refresh();toast('Utilização excluída.');}});
+document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b===btn));['research','usage','declarations','backup','about'].forEach(v=>$('view-'+v).classList.toggle('hidden',v!==btn.dataset.tab));}));
+$('export').addEventListener('click',async()=>{const payload={format:'rastro-cientifico-backup',schemaVersion:1,exportedAt:new Date().toISOString(),researches:await all('researches'),usages:await all('usages'),declarations:await all('declarations')};const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=`rastro-cientifico-backup-${new Date().toISOString().slice(0,10)}.json`;a.click();URL.revokeObjectURL(url);toast('Backup exportado.');});
+$('import-trigger').addEventListener('click',()=>$('import-file').click());
+$('import-file').addEventListener('change',async e=>{const file=e.target.files[0];if(!file)return;try{const data=JSON.parse(await file.text());if(data.format!=='rastro-cientifico-backup'||data.schemaVersion!==1||!Array.isArray(data.researches)||!Array.isArray(data.usages)||!Array.isArray(data.declarations??[]))throw new Error('Formato de backup não reconhecido.');if(!confirm('A restauração adicionará ou atualizará registros com os mesmos identificadores. Deseja continuar?'))return;for(const r of data.researches)await put('researches',r);for(const u of data.usages)await put('usages',u);for(const d of (data.declarations??[]))await put('declarations',d);await refresh();toast('Backup restaurado.');}catch(err){alert('Não foi possível restaurar o arquivo: '+err.message);}finally{e.target.value='';}});
+
+function composeDeclaration(research, usages, context){
+ const iag=usages.filter(u=>u.aiType==='IAG');
+ const iap=usages.filter(u=>u.aiType==='IAP');
+ const iapTraining=iap.filter(u=>u.iapTraining==='yes');
+ const formatUsage=(u,index)=> {
+  const lines=[
+   `${index+1}. Ferramenta utilizada: ${u.tool}`,
+   `Versão: ${u.version||'Não informada ou não disponível'}`,
+   `Etapa da pesquisa em que foi utilizada: ${u.phase}`,
+   `Finalidade específica do uso: ${u.purpose}`
+  ];
+  if(u.model) lines.splice(1,0,`Modelo: ${u.model}`);
+  if(u.humanIntervention) lines.push(`Intervenção humana informada: ${u.humanIntervention}`);
+  if(u.validation) lines.push(`Procedimentos de verificação e validação informados: ${u.validation}`);
+  return lines.join('\n');
+ };
+ let text=`DECLARAÇÃO DE USO DE FERRAMENTAS DE INTELIGÊNCIA ARTIFICIAL\n\n`;
+ text+=`Pesquisa: ${research.title}\n`;
+ if(research.field) text+=`Área do conhecimento: ${research.field}\n`;
+ text+=`\nEm observância às diretrizes aplicáveis do Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq), documentam-se as utilizações de Inteligência Artificial Generativa (IAG) e, quando aplicável, de Inteligência Artificial Preditiva (IAP), conforme discriminado a seguir, com indicação da versão quando disponível, da etapa da pesquisa e da finalidade específica de utilização.\n`;
+ if(iag.length){
+  text+=`\n1. UTILIZAÇÃO DE INTELIGÊNCIA ARTIFICIAL GENERATIVA (IAG)\n\n`;
+  text+=iag.map(formatUsage).join('\n\n')+'\n';
+ } else {
+  text+=`\n1. UTILIZAÇÃO DE INTELIGÊNCIA ARTIFICIAL GENERATIVA (IAG)\n\nNão foram registradas utilizações de IAG nesta pesquisa.\n`;
+ }
+ if(iap.length){
+  text+=`\n2. UTILIZAÇÃO DE INTELIGÊNCIA ARTIFICIAL PREDITIVA (IAP)\n\n`;
+  if(iapTraining.length){
+   text+=`Foram registrados usos de IAP em projeto(s) que envolvem treinamento de modelos, conforme indicado nos registros a seguir.\n\n`;
+   text+=iapTraining.map(formatUsage).join('\n\n')+'\n';
+   text+=`\nA declaração formal do uso de IAP é apresentada em razão da hipótese de treinamento de modelos, nos termos do art. 9º da Portaria CNPq nº 3.004/2026.\n`;
+  } else {
+   text+=`Foram registrados usos de IAP. Nos registros, não foi indicada a existência de projeto envolvendo treinamento de modelos. A condição prevista no art. 9º da Portaria CNPq nº 3.004/2026 deve ser observada conforme as características efetivas do projeto.\n\n`;
+   text+=iap.map(formatUsage).join('\n\n')+'\n';
+  }
+ }
+ if(context.trim()) text+=`\n3. INFORMAÇÕES COMPLEMENTARES\n\n${context.trim()}\n`;
+ text+=`\nRESPONSABILIDADE CIENTÍFICA\n\nOs pesquisadores permanecem responsáveis pelo conteúdo final do trabalho, incluindo afirmações factuais, citações, dados, referências e análises produzidos com auxílio de IAG. A validação final cabe aos autores e não pode ser delegada a ferramentas de IAG.\n`;
+ text+=`\nLocal e data: ______________________________________________\n\nPesquisador(es): ___________________________________________\n`;
+ text+=`\nObservação: revise esta declaração e verifique as orientações aplicáveis ao seu projeto e ao sistema de submissão. A declaração gerada não constitui certificação automática de conformidade normativa.\n`;
+ return {text,counts:{iag:iag.length,iap:iap.length,iapTraining:iapTraining.length}};
+}
+$('generate-declaration').addEventListener('click',async()=>{
+ const research=(await all('researches')).find(r=>r.id===$('declaration-research').value);
+ if(!research){toast('Selecione uma pesquisa.');return;}
+ const usages=(await all('usages')).filter(u=>u.researchId===research.id);
+ const result=composeDeclaration(research,usages,$('declaration-context').value);
+ currentDraft={id:uid(),researchId:research.id,researchTitle:research.title,generatedAt:new Date().toISOString(),normativeEdition:'CNPq - Portarias nº 2.664/2026 e nº 3.004/2026',templateVersion:'0.4.2',sourceUsageIds:usages.map(u=>u.id),snapshot:structuredClone(usages),originalText:result.text,text:result.text};
+ $('declaration-output').innerHTML=`<div class="notice"><strong>Rascunho gerado.</strong> ${result.counts.iag} registro(s) IAG e ${result.counts.iap} registro(s) IAP, dos quais ${result.counts.iapTraining} indicam treinamento de modelos. Revise integralmente o texto.</div><textarea id="draft-text" style="min-height:300px;margin-top:12px">${esc(result.text)}</textarea>`;
+ $('declaration-actions').classList.remove('hidden');
+});
+$('print-declaration').addEventListener('click',()=>{
+ const text=$('draft-text')?.value||currentDraft?.text||'';
+ const w=window.open('','_blank');
+ if(!w){toast('Permita a abertura de pop-ups para imprimir.');return;}
+ w.document.write(`<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>Declaração de uso de IA</title><style>body{font:12pt/1.6 Georgia,serif;max-width:800px;margin:50px auto;white-space:pre-wrap;color:#111}@media print{body{margin:2cm}}</style></head><body>${esc(text)}</body></html>`);
+ w.document.close();w.focus();w.print();
+});
+$('save-declaration').addEventListener('click',async()=>{
+ if(!currentDraft){toast('Gere uma declaração primeiro.');return;}
+ currentDraft.revisedText=$('draft-text')?.value??currentDraft.text;
+ currentDraft.text=currentDraft.originalText??currentDraft.text;
+ await put('declarations',currentDraft);
+ currentDraft=null;$('declaration-output').textContent='Declaração salva como versão histórica.';
+ $('declaration-actions').classList.add('hidden');await refresh();toast('Declaração histórica salva.');
+});
+$('declaration-list').addEventListener('click',async e=>{
+ const id=e.target.dataset.viewDeclaration;if(!id)return;
+ const d=(await all('declarations')).find(x=>x.id===id);if(!d)return;
+ $('declaration-output').innerHTML=`<p class="muted">Versão histórica · ${new Date(d.generatedAt).toLocaleString('pt-BR')}</p><textarea readonly style="min-height:300px">${esc(d.revisedText??d.text??d.originalText??'')}</textarea>`;
+ $('declaration-actions').classList.add('hidden');
+});
+
+// Inicializa os controles imediatamente, sem depender da abertura do IndexedDB.
+populateToolOptions($('usage-type').value || 'IAG');
+updateIapTrainingVisibility();
+openDB().then(async d=>{db=d;populateToolOptions($('usage-type').value || 'IAG');updateIapTrainingVisibility();await refresh();}).catch(err=>{alert('Não foi possível iniciar o armazenamento local: '+err.message+'\\n\\nTente abrir este arquivo em uma janela normal do Chrome ou Edge.');});
+})();
+</script>
+</body>
+</html>
