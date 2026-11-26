@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "Se utilizar o Rastro Científico em uma pesquisa, publicação ou trabalho acadêmico, cite esta versão do software conforme os metadados abaixo."
+type: software
+title: "Rastro Científico"
+abstract: >-
+  Ferramenta para documentar, organizar e gerar declarações sobre o uso de
+  Inteligência Artificial Generativa (IAG) e Inteligência Artificial Preditiva
+  (IAP) em pesquisas científicas. A edição 0.4.2 contempla as diretrizes do
+  Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq).
+authors:
+  - family-names: Fernandes
+    given-names: "Rodrigo NS"
+    affiliation: "Idealizador e desenvolvedor do Rastro Científico"
+version: "0.4.2"
+date-released: "2026-11-26"
+repository-code: "https://github.com/rodrigonsf/rastro_cientifico"
+url: "https://github.com/rodrigonsf/rastro_cientifico"
+keywords:
+  - Rastro Científico
+  - software científico
+  - inteligência artificial generativa
+  - inteligência artificial preditiva
+  - integridade científica
+  - transparência metodológica
+  - CNPq
