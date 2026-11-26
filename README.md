@@ -6,6 +6,21 @@
 
 Ferramenta de apoio ao registro e à documentação do uso de Inteligência Artificial Generativa (IAG) e Inteligência Artificial Preditiva (IAP) na pesquisa científica.
 
+## Citação acadêmica
+
+A versão 0.4.2 do Rastro Científico está arquivada no Zenodo e possui DOI próprio.
+
+**Citação da versão 0.4.2:**
+
+FERNANDES, Rodrigo Nunes de Souza. *Rastro Científico* (versão 0.4.2). Zenodo, 2026. https://doi.org/10.5281/zenodo.24566884
+
+- [Acessar o registro da versão 0.4.2 no Zenodo](https://zenodo.org/records/24566884)
+- [DOI de conceito do projeto, para referência geral às versões](https://doi.org/10.5281/zenodo.24566883)
+- [Metadados de citação (CITATION.cff)](CITATION.cff)
+
+Ao citar uma versão específica, utilize o DOI correspondente àquela versão. Para citar o projeto de forma geral, utilize o DOI de conceito.
+
+
 A Edição CNPq foi desenvolvida com base na **Portaria CNPq nº 3.004/2026**, na Política de Integridade na Atividade Científica (**Portaria CNPq nº 2.664/2026**) e na Lei Geral de Proteção de Dados Pessoais (**LGPD**), apoiando o registro das utilizações de IA e a elaboração de declarações conforme as diretrizes aplicáveis.
 
 ## Acesso rápido à documentação
