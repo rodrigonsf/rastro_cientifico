@@ -90,3 +90,13 @@ A Edição Geral não integra a versão 0.4.2.
 - Aplicação: arquivo HTML independente.
 - Persistência: IndexedDB local.
 - Backup: JSON.
+
+---
+
+## Direitos autorais
+
+© 2026 Rodrigo NS Fernandes. Todos os direitos reservados.
+
+O Rastro Científico é um projeto idealizado por Rodrigo NS Fernandes. O código-fonte é disponibilizado publicamente para consulta e acompanhamento do desenvolvimento. Essa disponibilização não representa concessão de licença geral para reprodução, modificação, distribuição ou exploração comercial do software.
+
+As contribuições ao repositório oficial dependem de autorização do responsável pelo projeto.
