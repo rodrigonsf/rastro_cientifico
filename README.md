@@ -6,6 +6,17 @@ Ferramenta de apoio à documentação, organização e recuperação de informa�
 
 A Edição CNPq organiza os registros para apoiar a elaboração de declarações de uso de IA conforme as diretrizes aplicáveis do Conselho Nacional de Desenvolvimento Científico e Tecnológico. A ferramenta produz um rascunho que deve ser revisado pelos pesquisadores.
 
+## Acesso rápido à documentação
+
+**[📘 Manual de utilização](docs/manual-de-utilizacao.md)**
+
+Consulte o guia passo a passo para abrir a aplicação, cadastrar pesquisas, registrar utilizações de IA, gerar declarações e salvar versões históricas.
+
+- [Manual de backup e transferência de dados](docs/manual-de-backup-e-dados.md)
+- [Documentação completa da plataforma](docs/documentacao-da-plataforma.md)
+- [Aviso de escopo e responsabilidades](docs/DISCLAIMER.md)
+- [Referencial normativo preliminar](docs/MARCO_NORMATIVO_REFERENCIAL.md)
+
 ## Começar a utilizar
 
 1. Baixe o pacote ZIP da versão desejada na área de Releases.
